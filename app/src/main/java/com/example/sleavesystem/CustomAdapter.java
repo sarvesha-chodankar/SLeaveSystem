@@ -32,7 +32,7 @@ class CustomAdapter extends BaseAdapter {
     public CustomAdapter(Context applicationContext, ArrayList<students_data> arrayList) {
         this.context = applicationContext;
         this.arrayList = arrayList;
-        db1=new Database(applicationContext,"LeaveSystem",null,6);
+        db1=new Database(applicationContext,"LeaveSystem",null,7);
 
     }
 

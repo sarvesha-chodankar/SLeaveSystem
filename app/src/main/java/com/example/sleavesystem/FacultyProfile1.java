@@ -45,7 +45,7 @@ public class FacultyProfile1 extends AppCompatActivity {
 
         setContentView(R.layout.activity_faculty_profile1);
 
-        db1 = new Database(getApplicationContext(), "LeaveSystem", null, 6);
+        db1 = new Database(getApplicationContext(), "LeaveSystem", null, 7);
 
 
         sp = getSharedPreferences(preferences, Context.MODE_PRIVATE);
@@ -99,9 +99,7 @@ public class FacultyProfile1 extends AppCompatActivity {
                 if (cursor.getCount()>0) {
                     int i = 100,j=50;
                     while (cursor.moveToNext()) {
-                        e1=(EditText)findViewById(R.id.editText6);
-                        e2=(EditText)findViewById(R.id.editText5);
-                        arrayList1.add(new students_data(cursor.getInt(1), cursor.getString(2), cursor.getInt(5),0,0));
+                        arrayList1.add(new students_data(cursor.getInt(1), cursor.getString(2), cursor.getInt(5)));
                         att_adapter = new Attendnce_adapter(getApplicationContext(), arrayList1);
                           // arrayList1.add(new students_data(String.valueOf(50),String.valueOf(100)));
 
@@ -124,10 +122,19 @@ public class FacultyProfile1 extends AppCompatActivity {
             }
         });
 
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(FacultyProfile1.this,EnterAttendance.class);
+                startActivity(i);
+            }
+        });
+
     }
 
-    @Override
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);

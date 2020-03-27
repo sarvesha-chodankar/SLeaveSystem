@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -12,16 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin">
-
-        </activity>
-        <activity android:name=".ListLeaveApp" />
+        <activity android:name=".AddClassteacher"></activity>
+        <activity android:name=".AddCourse" />
+        <activity android:name=".AddSubject" />
+        <activity android:name=".AddFaculty" />
+        <activity android:name=".AddStudent" />
+        <activity android:name=".EnterAttendance" />
+        <activity android:name=".admin" />
         <activity android:name=".StudentProfile" />
         <activity android:name=".LeaveApp" />
         <activity android:name=".FacultyProfile1" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +34,13 @@
         </activity>
         <activity android:name=".FacultyLogin" />
         <activity android:name=".studentLogin" />
+
+
+        <receiver android:name=".Attendnce_adapter">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

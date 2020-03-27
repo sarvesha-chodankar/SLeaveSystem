@@ -21,12 +21,11 @@ public class students_data {
         this.days=days;
         this.allowed=allowed;
     }
-    public students_data(int PNR, String name, int attendance,int setEditText1,int setEditText2) {
+    public students_data(int PNR, String name, int attendance) {
         this.PNR = PNR;
         this.name = name;
         this.attendance = attendance;
-        this.editText1=setEditText1;
-        this.editText2=setEditText2;
+
     }
     public int getPNR() {
         return PNR;

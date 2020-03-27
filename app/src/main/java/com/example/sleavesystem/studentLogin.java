@@ -36,7 +36,7 @@ public class studentLogin extends Activity {
         e1=(EditText)findViewById(R.id.editText2);
         e2=(EditText)findViewById(R.id.editText7);
         b1=(Button)findViewById(R.id.button7);
-        db1=new Database(getApplicationContext(),"LeaveSystem",null,6);
+        db1=new Database(getApplicationContext(),"LeaveSystem",null,7);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

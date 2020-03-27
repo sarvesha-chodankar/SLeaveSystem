@@ -20,7 +20,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-     String sql="create table students(_id INTEGER PRIMARY KEY AUTOINCREMENT,PNR INTEGER,Name CHAR,Attendance_count INTEGER,total_attendance INTEGER,A_percentage DECIMAL,Password INTEGER,course_code INTEGER,FOREIGN KEY(course_code) REFERENCES course(course_code))";
+     String sql="create table students(_id INTEGER PRIMARY KEY AUTOINCREMENT,PNR INTEGER,Name CHAR,Mobile_no String,Email String,Attendance_count INTEGER,total_attendance INTEGER,A_percentage DECIMAL,Password INTEGER,course_code INTEGER,FOREIGN KEY(course_code) REFERENCES course(course_code))";
         String sql1="create table subject(_id INTEGER PRIMARY KEY ,subject_name CHAR,faculty_id INTEGER,course_code INTEGER,FOREIGN KEY(faculty_id) REFERENCES faculty(_id),FOREIGN KEY(course_code) REFERENCES course(course_code))";
         String sql2="create table course(_id INTEGER PRIMARY KEY ,course_name CHAR)";
         String sql3="create table faculty(_id INTEGER PRIMARY KEY ,email char,Name CHAR,designation char,Password INTEGER)";
@@ -50,11 +50,11 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(isqll14);
         db.execSQL(isql112);
 
-       String isql1="insert into students(_id,PNR,Name,Attendance_count,total_attendance,A_percentage,Password,course_code) values(1,1231,'Shubhum Naik',2,0,50,1234,101)";
-        String isql2="insert into students(_id,PNR,Name,Attendance_count,total_attendance,A_percentage,Password,course_code) values(2,1232,'Sneha Vaidya',2,0,50,1234,102)";
-        String isql3="insert into students(_id,PNR,Name,Attendance_count,total_attendance,A_percentage,Password,course_code) values(3,1233,'Akash Kumar',2,0,0,1234,103)";
-        String isql4="insert into students(_id,PNR,Name,Attendance_count,total_attendance,A_percentage,Password,course_code) values(4,12312,'Akshay Naik',2,0,50,1234,101)";
-        String isql5="insert into students(_id,PNR,Name,Attendance_count,total_attendance,A_percentage,Password,course_code) values(5,123123,'Vasant Rao',2,0,0,1234,104)";
+       String isql1="insert into students(_id,PNR,Name,Mobile_no,Email,Attendance_count,total_attendance,A_percentage,Password,course_code) values(1,1231,'Shubhum Naik','8552921269','chodankarsarvesha@gmail.com',2,0,50,1234,101)";
+        String isql2="insert into students(_id,PNR,Name,Mobile_no,Email,Attendance_count,total_attendance,A_percentage,Password,course_code) values(2,1232,'Sneha Vaidya','8552921269','chodankarsarvesha@gmail.com',2,0,50,1234,102)";
+        String isql3="insert into students(_id,PNR,Name,Mobile_no,Email,Attendance_count,total_attendance,A_percentage,Password,course_code) values(3,1233,'Akash Kumar','8552921269','chodankarsarvesha@gmail.com',2,0,0,1234,103)";
+        String isql4="insert into students(_id,PNR,Name,Mobile_no,Email,Attendance_count,total_attendance,A_percentage,Password,course_code) values(4,12312,'Akshay Naik','8552921269','chodankarsarvesha@gmail.com',2,0,50,1234,101)";
+        String isql5="insert into students(_id,PNR,Name,Mobile_no,Email,Attendance_count,total_attendance,A_percentage,Password,course_code) values(5,123123,'Vasant Rai','8552921269','chodankarsarvesha@gmail.com',2,0,0,1234,104)";
         db.execSQL(isql1);
         db.execSQL(isql2);
         db.execSQL(isql3);
@@ -92,11 +92,11 @@ public class Database extends SQLiteOpenHelper {
         String dsql6="drop table if exists class_teacher";
 
        db.execSQL(dsql1);
-       db.execSQL(dsql2);
+      /* db.execSQL(dsql2);
         db.execSQL(dsql3);
         db.execSQL(dsql4);
         db.execSQL(dsql5);
-        db.execSQL(dsql1);
+        db.execSQL(dsql1);*/
         onCreate(db);
 
 

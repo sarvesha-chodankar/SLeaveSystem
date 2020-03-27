@@ -9,37 +9,37 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="260dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="76dp"
+        android:layout_width="274dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="248dp"
         android:backgroundTint="@drawable/shapelogin"
         android:text="Student Login"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="256dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="80dp"
+        android:layout_width="274dp"
+        android:layout_height="81dp"
         android:layout_marginTop="28dp"
-        android:text="Faculty Login"
         android:backgroundTint="@drawable/shapelogin"
+        android:text="Faculty Login"
         android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="260dp"
-        android:layout_height="82dp"
+        android:layout_width="274dp"
+        android:layout_height="83dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="76dp"
         android:backgroundTint="@drawable/shapelogin"
         android:text="Admin Login"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

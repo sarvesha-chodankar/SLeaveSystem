@@ -39,8 +39,7 @@ public class StudentProfile extends AppCompatActivity {
         setContentView(R.layout.activity_student_profile);
 
         b1=(Button)findViewById(R.id.button4);
-        b3=(Button)findViewById(R.id.button6);
-        db1=new Database(getApplicationContext(),"LeaveSystem",null,6);
+        db1=new Database(getApplicationContext(),"LeaveSystem",null,7);
 
         sp=getSharedPreferences(preferences, Context.MODE_PRIVATE);
          student_id=sp.getInt("studentid",0);

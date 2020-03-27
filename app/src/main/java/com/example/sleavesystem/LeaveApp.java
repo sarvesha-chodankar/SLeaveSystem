@@ -50,7 +50,7 @@ public class LeaveApp extends AppCompatActivity {
         e2=(EditText)findViewById(R.id.editText4);
         e3=(EditText)findViewById(R.id.editText);
 
-        db1=new Database(getApplicationContext(),"LeaveSystem",null,6);
+        db1=new Database(getApplicationContext(),"LeaveSystem",null,7);
         e1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
