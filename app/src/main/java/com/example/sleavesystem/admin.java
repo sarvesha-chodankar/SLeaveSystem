@@ -16,8 +16,8 @@ public class admin extends AppCompatActivity {
 
         b1=(Button)findViewById(R.id.button12);
         b2=(Button)findViewById(R.id.button13);
-        b3=(Button)findViewById(R.id.button14);
-        b4=(Button)findViewById(R.id.button15);
+        b3=(Button)findViewById(R.id.button15);
+        b4=(Button)findViewById(R.id.button14);
         b5=(Button)findViewById(R.id.button17);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class admin extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(admin.this,AddSubject.class);
+                Intent i=new Intent(admin.this,AddClassteacher.class);
                 startActivity(i);
             }
         });

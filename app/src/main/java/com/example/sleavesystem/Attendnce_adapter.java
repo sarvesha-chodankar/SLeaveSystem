@@ -1,26 +1,35 @@
 package com.example.sleavesystem;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.net.Uri;
 import android.content.ContentValues;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.content.Intent;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.database.sqlite.SQLiteDatabase;
+
+import androidx.core.app.ActivityCompat;
 
 import com.example.sleavesystem.Database;
 import com.example.sleavesystem.students_data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class Attendnce_adapter extends BaseAdapter {
@@ -75,6 +84,7 @@ public class Attendnce_adapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
 
+                    //ActivityCompat.requestPermissions((Activity) context.getApplicationContext(),new String[]{Manifest.permission.SEND_SMS,Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
                     db = db1.getWritableDatabase();
                     rdb=db1.getReadableDatabase();
                     int id = arrayList.get(position).getPNR();
@@ -83,17 +93,23 @@ public class Attendnce_adapter extends BaseAdapter {
                     if(cursor.moveToFirst())
                         mobile=cursor.getString(0);
 
-                    //Getting intent and PendingIntent instance
-                    Intent intent=new Intent(context.getApplicationContext(),Attendnce_adapter.class);
-                    PendingIntent pi= PendingIntent.getActivity(context.getApplicationContext(), 0, intent,0);
+                    //Intent intent=new Intent(context.getApplicationContext(),Attendnce_adapter.class);
+                    //PendingIntent pi= PendingIntent.getActivity(context.getApplicationContext(), 0, intent,0);
 
                     //Get the SmsManager instance and call the sendTextMessage method to send message
-                    String msg="Dear Student, this is to inform you that your attendance is below 75%. Any student with less than 75% attendance will not be allowed to appear for the exams, hence attend lectures";
-                    SmsManager sms=SmsManager.getDefault();
-                    sms.sendTextMessage(mobile, null, msg, pi,null);
+                    try {
+                        ArrayList<String> data=new ArrayList<String>();
+                        data.add("Dear Student, this is to inform you that your attendance is below 75%. ");
+                        data.add("Any student with less than 75% attendance will not be allowed to appear for the exams, hence attend lectures");
+                        SmsManager sms = SmsManager.getDefault();
+                        sms.sendMultipartTextMessage(mobile, null, data, null, null);
+                        Toast.makeText(context.getApplicationContext(), "Message Sent successfully to !" + mobile, Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(context.getApplicationContext(), "Message Sent successfully to !"+mobile,Toast.LENGTH_LONG).show();
-
+                    }
+                    catch (Exception e) {
+                        Toast.makeText(context.getApplicationContext(), "Message not Sent  !" + mobile, Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                    }
 
                 }
 

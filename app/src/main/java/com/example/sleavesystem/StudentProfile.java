@@ -46,11 +46,11 @@ public class StudentProfile extends AppCompatActivity {
         listview = (ListView)findViewById(R.id.listview1);
         db = db1.getReadableDatabase();
 
-        cursor = db.rawQuery("select * from students where PNR="+student_id , null);
+        cursor = db.rawQuery("select * from students,course where PNR="+student_id , null);
         int count = cursor.getCount();
         if (count > 0) {
-            String[] from = {"PNR","Name","Attendance_count","A_percentage"};
-            int[] to = {R.id.textView6,R.id.textView8,R.id.textView9,R.id.textView10};
+            String[] from = {"PNR","Name","Attendance_count","A_percentage","course_name"};
+            int[] to = {R.id.textView6,R.id.textView8,R.id.textView9,R.id.textView10,R.id.textView38};
             cursorAdapter = new SimpleCursorAdapter(
                     this,
                     R.layout.students_details,

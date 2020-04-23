@@ -96,9 +96,9 @@ public class FacultyProfile1 extends AppCompatActivity {
                 ArrayList<students_data> arrayList2 = new ArrayList<>();
 
                 cursor = db.rawQuery("select * from students where course_code=(select course_code from class_teacher where _id=" + faculty_id + ")", null);
-                if (cursor.getCount()>0) {
+                if (cursor.moveToFirst()) {
                     int i = 100,j=50;
-                    while (cursor.moveToNext()) {
+                    do {
                         arrayList1.add(new students_data(cursor.getInt(1), cursor.getString(2), cursor.getInt(5)));
                         att_adapter = new Attendnce_adapter(getApplicationContext(), arrayList1);
                           // arrayList1.add(new students_data(String.valueOf(50),String.valueOf(100)));
@@ -115,7 +115,7 @@ public class FacultyProfile1 extends AppCompatActivity {
                             0
                     ); */
 
-                    }
+                    }while (cursor.moveToNext());
                 }
                 listview.setAdapter(att_adapter);
 

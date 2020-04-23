@@ -81,18 +81,18 @@ public class EnterAttendance extends AppCompatActivity {
                 cursor = rdb.rawQuery("select no_of_leaves from leaves_info where PNR=" + s1.getSelectedItem(), null);
                 if(cursor.moveToFirst())
                 {
-                    int x=Integer.parseInt(e2.getText().toString());
-                    int y=(Integer.parseInt(e1.getText().toString())-cursor.getInt(0));
-                    percentge=x/y;
+                    double x=Double.parseDouble(e2.getText().toString());
+                    double y=(Double.parseDouble(e1.getText().toString())-cursor.getInt(0));
+                    percentge=(x*100)/y;
                     cv.put("A_percentage",percentge);
-                    Toast.makeText(getApplicationContext(), "Attendance xxx" + percentge + "", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Attendance %= " + percentge + "", Toast.LENGTH_LONG).show();
 
                 }
                 else
                 {
-                    percentge=Integer.parseInt(e2.getText().toString())/Integer.parseInt(e1.getText().toString());
+                    percentge=(Double.parseDouble(e2.getText().toString())*100)/Double.parseDouble(e1.getText().toString());
                     cv.put("A_percentage",percentge);
-                    Toast.makeText(getApplicationContext(), "Attendance yyyy" + percentge + "", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Attendance %= " + percentge + "", Toast.LENGTH_LONG).show();
 
                 }
                 long rowinserted = db.update("students", cv,"PNR= "+s1.getSelectedItem(),null);
